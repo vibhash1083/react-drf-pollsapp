@@ -1,0 +1,5 @@
+*.pyc
+*.log
+webpack-stats.json
+db.sqlite3
+node_modules
