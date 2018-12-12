@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {Link} from 'react-router';
-import classnames from 'classnames';
 
 import Questions from '../components/Questions';
 
@@ -52,7 +50,7 @@ class App extends Component {
   {
         e.preventDefault();
 
-        const q_index = this.props.ques.findIndex(x => x.id==parseInt(this.state.selectedQuestion));
+        const q_index = this.props.ques.findIndex(x => x.id===parseInt(this.state.selectedQuestion));
         const ques_obj = this.props.ques[q_index];
 
         const choice_text = this.refs.choice_text.value;
@@ -71,7 +69,7 @@ class App extends Component {
 
   render()
   {
-    const { ques, actions } = this.props;
+    const { ques } = this.props;
 
     let ques_div = <p><b>No Questions Found</b></p>;
 

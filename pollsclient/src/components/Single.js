@@ -1,7 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
-import classnames from 'classnames';
 import {Link} from 'react-router';
 import * as QuesActions from '../actions/QuesActions';
 
@@ -22,7 +21,7 @@ class Single extends Component {
     handleSubmit(event) 
     {
         event.preventDefault();
-        const c_index = this.props.choices.findIndex(x => x.id==parseInt(this.state.selectedOption));
+        const c_index = this.props.choices.findIndex(x => x.id===parseInt(this.state.selectedOption));
         const choice_obj = this.props.choices[c_index];
 
         this.props.actions.editChoice({
@@ -42,16 +41,15 @@ class Single extends Component {
 
     render() {
 
-        const { questions,choices, actions } = this.props;
+        const { questions,choices } = this.props;
         const {id} = this.props.params;
 
-        const i = questions.findIndex(x => x.id == id);
+        const i = questions.findIndex(x => x.id === id);
         const question_obj = questions[i];
 
-        const question_choice = choices.filter((option) => option.question == question_obj.id);
+        const question_choice = choices.filter((option) => option.question === question_obj.id);
 
         let single_content = null;
-        let choice_status = null;
 
         if(question_choice == null)
         {

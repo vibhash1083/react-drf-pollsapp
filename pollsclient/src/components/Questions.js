@@ -1,6 +1,4 @@
-import React, { PropTypes, Component } from 'react';
-import {connect} from 'react-redux';
-import classnames from 'classnames';
+import React, { Component } from 'react';
 import {Link} from 'react-router';
 
 export default class Questions extends Component {
@@ -43,7 +41,7 @@ export default class Questions extends Component {
     }
 
     render() {
-    const { question, i ,actions } = this.props;
+    const { question, i } = this.props;
     return (
             	<div className='QuestionSection'>
             	<table>

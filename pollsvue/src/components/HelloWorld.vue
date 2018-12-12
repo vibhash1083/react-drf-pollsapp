@@ -60,8 +60,4 @@ export default {
 .card { /* Adding some air under the questions */
   margin-bottom: 25px;
 }
-
-.done { /* Make the done questions a little bit transparent */
-  opacity: 0.3;
-}
 </style>
