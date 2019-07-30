@@ -148,7 +148,7 @@ function mapState(state)
 {
   return {
     ques: state.ques,
-  choices: state.choices
+    choices: state.choices
   };
 }
 

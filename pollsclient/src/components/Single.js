@@ -13,6 +13,12 @@ class Single extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentWillMount()
+    {
+        this.props.actions.getQues();
+        this.props.actions.getChoices();
+    }
+
     handleChange(event)
     {
         this.setState({selectedOption: event.target.value, formsubmit: false});    
@@ -41,10 +47,11 @@ class Single extends Component {
 
     render() {
 
-        const { questions,choices } = this.props;
+        const { questions, choices } = this.props;
+
         const {id} = this.props.params;
 
-        const i = questions.findIndex(x => x.id === id);
+        const i = questions.findIndex(x => x.id == id);
         const question_obj = questions[i];
 
         const question_choice = choices.filter((option) => option.question === question_obj.id);
