@@ -52,7 +52,7 @@ export function addQues(question_text) {
 
 export function deleteQues(id) {
   console.log('delete',id);
-  return fetch(`${BASE_URL}questions/`+`${id}`, {
+  return fetch(`${BASE_URL}questions/`+`${id}` + `/`, {
     method: 'delete',
     headers: {
       'Accept': 'application/json',
@@ -69,7 +69,7 @@ export function deleteQues(id) {
 export function editQues(editedQues) {
   console.log('editedQues',editedQues)
 
-  return fetch(`${BASE_URL}questions/`+`${editedQues.id}`, {
+  return fetch(`${BASE_URL}questions/`+`${editedQues.id}` + `/`, {
     method: 'put',
     headers: {
       'Accept': 'application/json',
@@ -118,7 +118,7 @@ export function addChoice(question, choice_text) {
 
 export function editChoice(editedChoice) {
 
-  return fetch(`${BASE_URL}choices/`+`${editedChoice.id}`, {
+  return fetch(`${BASE_URL}choices/`+`${editedChoice.id}` + `/`, {
     method: 'put',
     headers: {
       'Accept': 'application/json',
