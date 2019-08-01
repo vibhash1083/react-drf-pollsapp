@@ -81,6 +81,7 @@ class Single extends Component {
                                         )}
                                         <ul><input type='submit' value='Submit'/></ul>
                                     </form>
+                                    <Link to={"/"}>Go Back to the list of questions</Link>
                             </div>
         }
         else
