@@ -1,22 +1,6 @@
 import * as types from '../constants/ActionTypes';
 import { BASE_URL } from '../constants/global';
 
-function getCookie(name) {
-  var cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-      var cookie = cookies[i].trim();
-
-      // Does this cookie string begin with the name we want?
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
-  }
-  return cookieValue;
-}
 
 export function getQues() {
   return fetch(`${BASE_URL}questions/`, {
@@ -26,7 +10,6 @@ export function getQues() {
     ques: json
   }));
 }
-
 
 export function addQues(question_text) {
       const newQues = {
@@ -40,7 +23,6 @@ export function addQues(question_text) {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
         },
         credentials: 'same-origin',
         body: JSON.stringify(newQues)
@@ -57,7 +39,6 @@ export function deleteQues(id) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
     },
     credentials: 'same-origin'
   }).then(json => ({
@@ -74,7 +55,6 @@ export function editQues(editedQues) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
     },
     credentials: 'same-origin',
     body: JSON.stringify(editedQues)
@@ -106,7 +86,6 @@ export function addChoice(question, choice_text) {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
         },
         credentials: 'same-origin',
         body: JSON.stringify(newChoice)
@@ -123,7 +102,6 @@ export function editChoice(editedChoice) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
     },
     credentials: 'same-origin',
     body: JSON.stringify(editedChoice)
